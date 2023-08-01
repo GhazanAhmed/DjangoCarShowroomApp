@@ -1,0 +1,25 @@
+{% extends 'car_showroom/base.html' %}
+
+{% block title %}Our Team{% endblock %}
+
+{% block content %}
+<style>
+    img{
+        width: 300px;
+        height: 300px;
+    }
+</style>
+    <h1>Our Team</h1>
+    <ul>
+        {% for staff_member in staff_members %}
+            <li>
+                <strong>Name:</strong> {{ staff_member.name }} <br>
+                <strong>Role:</strong> {{ staff_member.role }} <br>
+                <strong>Showroom:</strong> {{ staff_member.showroom }} <br> <br>
+                {% if staff_member.pics %}
+                    <img src="{{ staff_member.pics.url }}" alt="{{ staff_member.name }}"> <br> <br>
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
